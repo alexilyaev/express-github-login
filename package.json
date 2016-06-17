@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "express-github-login",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,14 +11,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alexilyaev/test.git"
+    "url": "git+https://github.com/alexilyaev/express-github-login.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/alexilyaev/test/issues"
-  },
-  "homepage": "https://github.com/alexilyaev/test#readme",
+  "author": "Alex Ilyaev",
   "dependencies": {
     "body-parser": "1.15.1",
     "cookie-parser": "1.4.3",

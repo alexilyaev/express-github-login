@@ -33,7 +33,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressSession({
-  secret: 'CodeFresh is AWESOME!',
+  secret: 'Im an octopus',
   resave: true,
   saveUninitialized: true
 }));
