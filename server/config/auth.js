@@ -26,7 +26,7 @@ module.exports = (app) => {
   passport.use(new GitHubStrategy({
       clientID: 'e855d2361ca8da4c0ab1',
       clientSecret: '999fa34156194f13bbf6405be7cf0a07bc436f0d',
-      callbackURL: "/auth/github/callback"
+      callbackURL: 'http://localhost:3000/auth/github/callback'
     },
     (accessToken, refreshToken, profile, cb) => {
       return cb(null, profile);
