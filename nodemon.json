@@ -5,10 +5,11 @@
     "**/.DS_Store"
   ],
   "ext": "js json",
-  "exec": "node server/server.js",
+  "exec": "eslint -c .eslintrc --ignore-path .gitignore . && node server/server.js",
   "watch": [
     "package.json",
     "nodemon.json",
-    "server/"
+    "server/",
+    ".eslintrc"
   ]
 }

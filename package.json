@@ -7,7 +7,8 @@
     "prestart": "npm install",
     "start": "NODE_ENV=development nodemon --debug server/server.js",
     "preprod": "npm prune; npm install --production --no-bin-links",
-    "prod": "pm2 restart api || NODE_ENV=production pm2 start server.js -n 'api' -i 0"
+    "prod": "pm2 restart api || NODE_ENV=production pm2 start server.js -n 'api' -i 0",
+    "lintjs": "eslint -c .eslintrc-prod --ignore-path .gitignore ."
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,8 @@
     "express-session": "1.13.0",
     "morgan": "1.7.0",
     "passport": "0.3.2",
-    "passport-github": "1.1.0"
+    "passport-github": "1.1.0",
+    "winston": "2.2.0"
   },
   "devDependencies": {
     "eslint": "2.12.0",

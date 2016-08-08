@@ -10,6 +10,7 @@ const logger         = require('morgan');
 const bodyParser     = require('body-parser');
 const cookieParser   = require('cookie-parser');
 const expressSession = require('express-session');
+const winston        = require('winston');
 
 const app = express();
 
@@ -55,5 +56,5 @@ app.use(express.static(app.get('public')));
  */
 
 app.listen(app.get('port'), () => {
-  console.log('Listening on: http://localhost:', app.get('port'));
+  winston.log('Listening on: http://localhost:', app.get('port'));
 });
