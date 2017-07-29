@@ -8,12 +8,14 @@ const GitHubStrategy = require('passport-github').Strategy;
  * Setup application Auth
  */
 
-module.exports = (app) => {
+module.exports = app => {
 
   const githubStrategy = new GitHubStrategy({
     clientID: 'e855d2361ca8da4c0ab1',
     clientSecret: '999fa34156194f13bbf6405be7cf0a07bc436f0d',
     callbackURL: 'http://localhost:3000/auth/github/callback'
+  }, (accessToken, refreshToken, profile, done) => {
+    return done(null, profile);
   });
 
   // Initialize Passport and restore authentication state, if any, from the session.
@@ -28,8 +30,5 @@ module.exports = (app) => {
     cb(null, obj);
   });
 
-  passport.use(githubStrategy, (accessToken, refreshToken, profile, cb) => {
-    return cb(null, profile);
-  });
-
+  passport.use(githubStrategy);
 };

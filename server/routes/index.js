@@ -1,31 +1,23 @@
-'use strict';
-
-const passport = require('passport');
-
 /**
- * Setup application routes
+ * App Routes
  */
 
-module.exports = (app) => {
+'use strict';
 
-  /**
-   * Site routes
-   */
+const express = require('express');
 
-  app.get('/', (req, res) => {
-    res.render('home', { user: req.user && req.user._json });
-  });
+const router = express.Router();
 
-  /**
-   * Auth
-   */
+const authRoutes = require('./auth');
 
-  app.get('/auth/github', passport.authenticate('github'));
+/**
+ * Site routes
+ */
 
-  app.get('/auth/github/callback',
-    passport.authenticate('github', { failureRedirect: '/' }),
-    (req, res) => {
-      // Successful authentication, redirect home.
-      res.redirect('/');
-    });
-};
+router.get('/', (req, res) => {
+  res.render('home', { user: req.user && req.user._json });
+});
+
+router.use('/auth', authRoutes);
+
+module.exports = router;

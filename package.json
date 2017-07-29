@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prestart": "npm install",
     "start": "NODE_ENV=development nodemon --debug server/server.js",
     "preprod": "npm prune; npm install --production --no-bin-links",
     "prod": "pm2 restart api || NODE_ENV=production pm2 start server.js -n 'api' -i 0",
@@ -27,7 +26,7 @@
     "winston": "2.2.0"
   },
   "devDependencies": {
-    "eslint": "3.2.2",
+    "eslint": "4.2.0",
     "nodemon": "1.9.2"
   }
 }

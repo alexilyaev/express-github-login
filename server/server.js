@@ -46,7 +46,9 @@ require('./config/auth')(app);
  * Define Routes
  */
 
-require('./routes')(app);
+const routes = require('./routes');
+
+app.use('/', routes);
 
 // Serve static files
 app.use(express.static(app.get('public')));
@@ -56,5 +58,5 @@ app.use(express.static(app.get('public')));
  */
 
 app.listen(app.get('port'), () => {
-  winston.log('Listening on: http://localhost:', app.get('port'));
+  winston.info(`Listening on: http://localhost:${app.get('port')}`);
 });
