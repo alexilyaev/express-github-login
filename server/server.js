@@ -6,13 +6,13 @@
 
 require('dotenv-safe').load();
 
-const path           = require('path');
-const express        = require('express');
-const logger         = require('morgan');
-const bodyParser     = require('body-parser');
-const cookieParser   = require('cookie-parser');
+const path = require('path');
+const express = require('express');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
-const winston        = require('winston');
+const winston = require('winston');
 
 const app = express();
 
@@ -35,11 +35,13 @@ app.use(logger('dev'));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(expressSession({
-  secret: 'Im an octopus',
-  resave: true,
-  saveUninitialized: true
-}));
+app.use(
+  expressSession({
+    secret: 'Im an octopus',
+    resave: true,
+    saveUninitialized: true
+  })
+);
 
 // Setup Auth strategies
 require('./config/auth')(app);

@@ -5,15 +5,20 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=development nodemon --debug server/server.js",
-    "preprod": "npm prune; npm install --production --no-bin-links",
-    "prod": "pm2 restart api || NODE_ENV=production pm2 start server.js -n 'api' -i 0",
-    "lintjs": "eslint -c .eslintrc-prod --ignore-path .gitignore ."
+    "serve": "node server/server.js",
+    "now-start": "npm run serve",
+    "format-prettier": "prettier --print-width 100 --single-quote --write \"**/*.js\"",
+    "lint-prettier": "prettier -l --print-width 100 --single-quote \"**/*.js\"",
+    "lint-eslint": "eslint -c .eslintrc --ignore-path .gitignore --max-warnings 0 .",
+    "lint": "npm run lint-prettier && npm run lint-eslint",
+    "precommit": "lint-staged"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alexilyaev/express-github-login.git"
+  "lint-staged": {
+    "*.js": [
+      "format-prettier",
+      "git add"
+    ]
   },
-  "author": "Alex Ilyaev",
   "dependencies": {
     "body-parser": "1.15.1",
     "cookie-parser": "1.4.3",
@@ -29,6 +34,15 @@
   },
   "devDependencies": {
     "eslint": "4.2.0",
-    "nodemon": "1.9.2"
-  }
+    "husky": "0.14.3",
+    "lint-staged": "4.0.2",
+    "nodemon": "1.9.2",
+    "prettier": "1.5.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexilyaev/express-github-login.git"
+  },
+  "author": "Alex Ilyaev",
+  "license": "MIT"
 }
