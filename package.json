@@ -6,12 +6,13 @@
   "scripts": {
     "start": "NODE_ENV=development nodemon --debug server/server.js",
     "serve": "node server/server.js",
-    "now-start": "npm run serve",
     "format-prettier": "prettier --print-width 100 --single-quote --write \"**/*.js\"",
     "lint-prettier": "prettier -l --print-width 100 --single-quote \"**/*.js\"",
     "lint-eslint": "eslint -c .eslintrc --ignore-path .gitignore --max-warnings 0 .",
     "lint": "npm run lint-prettier && npm run lint-eslint",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "now-start": "npm run serve",
+    "deploy": "now -e NODE_ENV=\"production\" -e GITHUB_CLIENT_ID=@github_client_id -e GITHUB_CLIENT_SECRET=@github_client_secret -e GITHUB_CLIENT_CALLBACK_URL=@github_client_callback_url --public"
   },
   "lint-staged": {
     "*.js": [
@@ -38,6 +39,9 @@
     "lint-staged": "4.0.2",
     "nodemon": "1.9.2",
     "prettier": "1.5.3"
+  },
+  "engines": {
+    "node": ">=6.9.0"
   },
   "repository": {
     "type": "git",

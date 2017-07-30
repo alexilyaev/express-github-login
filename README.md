@@ -1,13 +1,19 @@
-# express-github-login
+express-github-login
+=====================
 
 A small example of how to do GitHub login using Express with Passport
 
-Only works for `http://localhost:3000`
+Demo
+-----
 
-## Init the app
+[https://express-github-login.now.sh/](https://express-github-login.now.sh/)
+
+Run Locally
+------------
 
 ```
+npm i
 npm start
 ```
 
-
+- Only works on `http://localhost:3000`
