@@ -11,9 +11,9 @@ const GitHubStrategy = require('passport-github').Strategy;
 module.exports = app => {
 
   const githubStrategy = new GitHubStrategy({
-    clientID: 'e855d2361ca8da4c0ab1',
-    clientSecret: '999fa34156194f13bbf6405be7cf0a07bc436f0d',
-    callbackURL: 'http://localhost:3000/auth/github/callback'
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    callbackURL: process.env.GITHUB_CLIENT_CALLBACK_URL
   }, (accessToken, refreshToken, profile, done) => {
     return done(null, profile);
   });

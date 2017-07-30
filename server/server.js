@@ -4,6 +4,8 @@
  * Load modules
  */
 
+require('dotenv-safe').load();
+
 const path           = require('path');
 const express        = require('express');
 const logger         = require('morgan');
