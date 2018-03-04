@@ -37,7 +37,7 @@
     "eslint": "4.2.0",
     "husky": "0.14.3",
     "lint-staged": "4.0.2",
-    "nodemon": "1.9.2",
+    "nodemon": "1.15.1",
     "prettier": "1.5.3"
   },
   "engines": {
